@@ -1,0 +1,40 @@
+{
+  "name": "verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors",
+  "description": "Tool to auto-generate reporting messages for instructors to paste into staff-chat because the leads can't be bothered to check github PR for correction statuses.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "bin": {
+    "verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors": "index.js",
+    "vcr": "index.js"
+  },
+  "author": {
+    "name": "duy-the-developer",
+    "email": "duythedeveloper@gmail.com",
+    "url": "https://duynguyen.ca/"
+  },
+  "keywords": [
+    "verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors",
+    "duy-the-developer"
+  ],
+  "files": [
+    "index.js",
+    "utils"
+  ],
+  "scripts": {
+    "format": "prettier --write \"./**/*.{js,json}\""
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-alerts": "^1.2.2",
+    "cli-handle-error": "^4.4.0",
+    "cli-handle-unhandled": "^1.1.1",
+    "cli-meow-help": "^3.1.0",
+    "cli-welcome": "^2.2.2",
+    "clipboardy": "^3.0.0",
+    "meow": "^9.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "type": "module"
+}
