@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors
+ * verbose-correction-reporting
  * Tool to auto-generate reporting messages for instructors to paste into staff-chat because the leads can't be bothered to check github PR for correction statuses.
  *
  * @author duy-the-developer <duynguyen.ca>

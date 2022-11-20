@@ -1,10 +1,10 @@
 {
   "name": "verbose-correction-reporting",
-  "description": "Tool to auto-generate reporting messages for instructors to paste into staff-chat because the leads can't be bothered to check github PR for correction statuses.",
+  "description": "Tool to auto-generate reporting messages for instructors to paste into staff-chat.",
   "version": "0.0.1",
   "license": "MIT",
   "bin": {
-    "verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors": "index.js",
+    "verbose-correction-reporting": "index.js",
     "vcr": "index.js"
   },
   "author": {
@@ -13,7 +13,7 @@
     "url": "https://duynguyen.ca/"
   },
   "keywords": [
-    "verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors",
+    "verbose-correction-reporting",
     "duy-the-developer"
   ],
   "files": [

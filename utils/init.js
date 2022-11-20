@@ -7,7 +7,7 @@ import cliHandleUnhandled from 'cli-handle-unhandled'
 const init = ({ clear = true }) => {
   cliHandleUnhandled()
   welcome({
-    title: `verbose-correction-reporting-for-concordia-full-stack-web-development-bootcamp-instructors`,
+    title: `verbose-correction-reporting`,
     tagLine: `by duy-the-developer`,
     description: pkg.description,
     version: pkg.version,
