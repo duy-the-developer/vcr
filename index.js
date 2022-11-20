@@ -77,8 +77,10 @@ const encoding = { encoding: 'utf-8' }
   if (input.includes('mark')) {
     const mark = input[1]
     try {
-      if (!mark || typeof mark !== 'number')
-        throw new Error('Mark number is required')
+      if (!mark || typeof mark !== 'number' || mark !== 75 || mark !== 100)
+        throw new Error(
+          'Mark percentage is required, possible values: 75 | 100'
+        )
 
       // get pr info
       const prStatus = execSync(
