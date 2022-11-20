@@ -58,7 +58,7 @@ const { clear, debug } = flags
 
       const output = `I will be working on Pull Request \`#${number}\`, title: \`${title}\`, id: \`${id}\`, from \`${login}\` on github.com. Currently the PR has ${
         labels[0] ? `the ${labels[0].name}` : 'no'
-      } label. The student submitted their workshop on: \`${createdAt}\`, and it was last updated on ${updatedAt} with \`${
+      } label. The student submitted their workshop on: \`${createdAt}\`, and it was last updated on \`${updatedAt}\` with \`${
         reviews.length
       }\` reviews. I requested ${
         flags.numChangesRequested
