@@ -56,7 +56,7 @@ const { clear, debug } = flags
         },
       } = JSON.parse(prStatus)
 
-      const output = `I will be working on Pull Request #${number}, title: ${title}, id: ${id}, from ${login} on github.com. Currently the PR has ${labels[0]} label, and it was last updated on ${updatedAt}. They have already submitted their workshop.I requested ${flags.numChangesRequested} changes. I will verify that all requested changes have in fact been changed properly. Here is the pull request in question: ${url}`
+      const output = `I will be working on Pull Request \`#${number}\`, title: \`${title}\`, id: \`${id}\`, from \`${login}\` on github.com. Currently the PR has ${labels[0]} label, and it was last updated on ${updatedAt}. They have already submitted their workshop.I requested ${flags.numChangesRequested} changes. I will verify that all requested changes have in fact been changed properly. Here is the pull request in question: ${url}`
 
       console.log(output)
 
