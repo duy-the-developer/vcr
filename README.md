@@ -2,7 +2,7 @@
 
 ## Description
 
-Tool to auto-generate reporting messages for instructors to paste into staff-chat because the leads can't be bothered to check github PR for correction statuses. The tool automatically pull the Github pull request and copy an except of the PR's status into the clipboard.
+Tool to auto-generate reporting messages for instructors to paste into staff-chat. The tool automatically pull the Github pull request and copy an except of the PR's status into the clipboard.
 
 ## Installation
 
