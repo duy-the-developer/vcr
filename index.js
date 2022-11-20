@@ -17,6 +17,8 @@ const input = cli.input
 const flags = cli.flags
 const { clear, debug } = flags
 
+const encoding = { encoding: 'utf-8' }
+
 ;(async () => {
   init({ clear })
   input.includes(`help`) && cli.showHelp(0)
@@ -41,7 +43,7 @@ const { clear, debug } = flags
       // get status
       const prStatus = execSync(
         `gh pr view --json author,createdAt,id,labels,number,title,updatedAt,url,reviews`,
-        { encoding: 'utf-8' }
+        encoding
       )
 
       const {
@@ -67,6 +69,54 @@ const { clear, debug } = flags
       console.log(output)
 
       clipboard.writeSync(output)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  if (input.includes('mark')) {
+    const mark = input[1]
+    try {
+      if (!mark || typeof mark !== 'number')
+        throw new Error('Mark number is required')
+
+      // get pr info
+      const prStatus = execSync(
+        `gh pr view --json author,createdAt,id,labels,number,title,updatedAt,url,reviews`,
+        encoding
+      )
+
+      const {
+        author: { login },
+        createdAt,
+        id,
+        labels,
+        number,
+        reviews,
+        title,
+        updatedAt,
+        url,
+      } = JSON.parse(prStatus)
+
+      console.log(`Commenting on PR #${number} by [${login}]`)
+
+      // add comment
+      const commentOutput = execSync(
+        `gh pr comment -b "Very well done @${login}, you reached ${mark}%!"`,
+        encoding
+      )
+      console.log(commentOutput)
+
+      // add label
+      const addLabelOutput = execSync(
+        `gh pr edit --add-label ":heavy_check_mark: Completed"`,
+        encoding
+      )
+      console.log(addLabelOutput)
+
+      // close PR
+      const prCloseOutput = execSync(`gh pr close ${number}`, encoding)
+      console.log(prCloseOutput)
     } catch (error) {
       console.error(error)
     }
