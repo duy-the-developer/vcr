@@ -77,7 +77,8 @@ const encoding = { encoding: 'utf-8' }
   if (input.includes('mark')) {
     const mark = input[1]
     try {
-      if (mark !== (75 || 100))
+      console.log(mark)
+      if (mark !== '75' || mark !== '100')
         throw new Error(
           'Mark percentage is required, possible values: 75 | 100'
         )
