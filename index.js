@@ -100,7 +100,7 @@ const encoding = { encoding: 'utf-8' }
       // add comment
       const commentOutput = execSync(
         `gh pr comment -b "Very well done @${login}, you reached ${mark}%!${
-          mark === 100 &&
+          mark !== 100 &&
           'If you wish to push for 100%, please open another PR.'
         }"`,
         encoding
