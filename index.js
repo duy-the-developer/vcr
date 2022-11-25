@@ -10,7 +10,7 @@
 import init from './utils/init.js'
 import cli from './utils/cli.js'
 import log from './utils/log.js'
-import { execSync } from 'child_process'
+import { exec, execSync } from 'child_process'
 import clipboard from 'clipboardy'
 
 const input = cli.input
@@ -31,8 +31,13 @@ const encoding = { encoding: 'utf-8' }
       if (!prNum || typeof prNum !== 'number')
         throw new Error('PR number required')
 
+      const repo = execSync(
+        `gh repo view --json name -q ".name"`,
+        encoding
+      ).replace('\n', '')
+
       console.log(
-        `Checking out pull request #${prNum} using Github CLI, please wait...`
+        `Checking out [ ${repo} | PR #${prNum} ] using Github CLI, please wait...`
       )
 
       // checkout the pr number
@@ -48,23 +53,12 @@ const encoding = { encoding: 'utf-8' }
 
       const {
         author: { login },
-        createdAt,
-        id,
-        labels,
         number,
-        reviews,
         title,
-        updatedAt,
         url,
       } = JSON.parse(prStatus)
 
-      const output = `I will be working on Pull Request \`#${number}\`, title: \`${title}\`, id: \`${id}\`, from \`${login}\` on github.com. Currently the PR has ${
-        labels[0] ? `the ${labels[0].name}` : 'no'
-      } label. The student submitted their workshop on: \`${createdAt}\`, and it was last updated on \`${updatedAt}\` with \`${
-        reviews.length
-      }\` reviews. I requested ${
-        flags.numChangesRequested
-      } changes. I will verify that all requested changes have in fact been changed properly. Here is the pull request in question: ${url}`
+      const output = `I will be working on \`${repo}\`, PR \`#${number}\`, title: \`${title}\`, from \`${login}\` on github.com at: \`${url}\``
 
       console.log(output)
 
