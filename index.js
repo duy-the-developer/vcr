@@ -95,11 +95,11 @@ const encoding = { encoding: 'utf-8' }
         url,
       } = JSON.parse(prStatus)
 
-      console.log(`Commenting on PR #${number} by [${login}]`)
+      console.log(`Leaving a review comment on PR #${number} by [${login}]`)
 
       // add comment
       const commentOutput = execSync(
-        `gh pr comment -b "Very well done @${login}, you reached ${mark}%!${
+        `gh pr review --comment -b "Very well done @${login}, you reached ${mark}%!${
           mark !== 100 &&
           ' If you wish to push for 100%, please open another PR.'
         }"`,
